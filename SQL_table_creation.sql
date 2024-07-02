@@ -1,17 +1,12 @@
--- Drop tables if they exist
+-- Drop table
 DROP TABLE IF EXISTS departments CASCADE;
-DROP TABLE IF EXISTS dept_emp CASCADE;
-DROP TABLE IF EXISTS dept_manager CASCADE;
-DROP TABLE IF EXISTS employees CASCADE;
-DROP TABLE IF EXISTS salaries CASCADE;
-DROP TABLE IF EXISTS titles;
-
 -- Create the departments table
 CREATE TABLE departments (
     dept_no VARCHAR(4) PRIMARY KEY,
     dept_name VARCHAR(40) NOT NULL
 );
 
+-- Drop table 
 DROP TABLE IF EXISTS employees CASCADE;
 -- Create the employees table
 CREATE TABLE employees (
@@ -25,6 +20,8 @@ CREATE TABLE employees (
 	FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
 );
 
+-- Drop table
+DROP TABLE IF EXISTS dept_emp CASCADE;
 -- Create the dept_emp table
 CREATE TABLE dept_emp (
     emp_no INT,
@@ -34,6 +31,8 @@ CREATE TABLE dept_emp (
 	PRIMARY KEY (emp_no, dept_no)
 );
 
+-- Drop table
+DROP TABLE IF EXISTS dept_manager CASCADE;
 -- Create the dept_manager table
 CREATE TABLE dept_manager (
     dept_no VARCHAR(4),
@@ -43,6 +42,8 @@ CREATE TABLE dept_manager (
     FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
+-- Drop table
+DROP TABLE IF EXISTS salaries CASCADE;
 -- Create the salaries table
 CREATE TABLE salaries (
     emp_no INT PRIMARY KEY,
@@ -50,6 +51,7 @@ CREATE TABLE salaries (
     FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
+-- Drop table
 DROP TABLE IF EXISTS titles;
 -- Create the titles table
 CREATE TABLE titles (
